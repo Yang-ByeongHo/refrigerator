@@ -1,0 +1,14 @@
+.storage {
+    text-align: center;
+  }
+  
+  .items {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .item img {
+    width: 300px;
+    height: 200px;
+  }
+  

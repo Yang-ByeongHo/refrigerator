@@ -1,0 +1,14 @@
+.recommendations {
+    text-align: center;
+  }
+  
+  .recipes {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .recipe img {
+    width: 100px;
+    height: auto;
+  }
+  
