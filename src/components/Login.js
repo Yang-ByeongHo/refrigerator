@@ -10,10 +10,11 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/login', {
+      const response = await axios.post('http://localhost:9000/api/login', {
         username,
         password,
       });
+      console.log('Response:', response.data); // 로그 추가
       if (response.data.success) {
         // 로그인 성공 시 메인 페이지로 이동
         navigate('/');

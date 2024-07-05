@@ -41,15 +41,21 @@ app.get('/api/check-db-connection', (req, res) => {
 
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
-    const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
+
+    console.log('Received login request:', username, password); // 로그 추가
+
+    const query = 'SELECT * FROM user WHERE id = ? AND password = ?';
     db.query(query, [username, password], (err, results) => {
         if (err) {
-            console.error(err);
+            console.error('Error querying database:', err);
             res.status(500).send('Internal server error');
-        } else if (results.length > 0) {
-            res.send({ success: true });
         } else {
-            res.send({ success: false });
+            console.log('Query results:', results); // 로그 추가
+            if (results.length > 0) {
+                res.send({ success: true });
+            } else {
+                res.send({ success: false });
+            }
         }
     });
 });
